@@ -16,7 +16,7 @@ extension Comparable {
         return min(max(self, limits.lowerBound), limits.upperBound)
     }
 }
-
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 private struct SnapCarouselBuilder <Content: View> : View{
     
     let numberOfItems: Int
@@ -99,6 +99,7 @@ private struct SnapCarouselBuilder <Content: View> : View{
 ///     }
 ///     .frame(height: 320)
 ///
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 public struct SnapCarousel<Data, Content> where Data : RandomAccessCollection {
    
     /// The collection of underlying identified data that SwiftUI uses to create
@@ -119,7 +120,7 @@ public struct SnapCarousel<Data, Content> where Data : RandomAccessCollection {
     public var selection: Binding<Int>?
 }
 
-
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 extension SnapCarousel: View  where  Content : View,Data.Element : Hashable {
    // extension SnapCarousel: View  where  Content : View ,Data.Element : Hashable{
     /// Creates an instance that uniquely identifies and creates views across
@@ -168,7 +169,7 @@ extension SnapCarousel: View  where  Content : View,Data.Element : Hashable {
     }
 }
 
-
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 extension SnapCarousel where Data == Range<Int>, Content : View {
     /// Creates an instance that computes views on demand over a given constant
     /// range.
