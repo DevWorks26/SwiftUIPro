@@ -57,7 +57,7 @@ private struct SnapCarouselBuilder <Content: View> : View{
             .offset(x: -bgOffset*(g.size.width - widthOfHiddenCards * 2 - spacing ) + screenDrag)
             .animation(.default)
             .gesture(
-                DragGesture()
+                DragGesture(e(minimumDistance: 0))
                     .updating($screenDrag) {currentState, gestureState, transaction in
                       gestureState  = currentState.translation.width
                     }
