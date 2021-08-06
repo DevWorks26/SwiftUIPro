@@ -58,6 +58,7 @@ private struct SnapCarouselBuilder <Content: View> : View{
             .animation(.default)
             .gesture(
                 DragGesture(minimumDistance: 0)
+                
                     .updating($screenDrag) {currentState, gestureState, transaction in
                       gestureState  = currentState.translation.width
                     }
@@ -65,13 +66,13 @@ private struct SnapCarouselBuilder <Content: View> : View{
                         if value.translation.width > 50 && bgOffset > 0{
                             bgOffset -= 1
                             selection?.wrappedValue = Int(bgOffset)
-                            let impactMed = UIImpactFeedbackGenerator(style: .medium)
-                            impactMed.impactOccurred()
+                           // let impactMed = UIImpactFeedbackGenerator(style: .medium)
+                            //impactMed.impactOccurred()
                         }else if value.translation.width < -50 && Int(bgOffset) < numberOfItems - 1 {
                             bgOffset += 1
                             selection?.wrappedValue = Int(bgOffset)
-                            let impactMed = UIImpactFeedbackGenerator(style: .medium)
-                            impactMed.impactOccurred()
+                           // let impactMed = UIImpactFeedbackGenerator(style: .medium)
+                           // impactMed.impactOccurred()
                         }
                     }
             )
